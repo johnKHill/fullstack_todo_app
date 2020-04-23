@@ -16,21 +16,25 @@ class TodoList extends Component {
     this.loadTodos();
   }
 
+
   async loadTodos() {
     let todos = await apiCalls.getTodos();
     this.setState({ todos });
   }
+
 
   async addTodo(val) {
     let newTodo = await apiCalls.createTodo(val);
     this.setState({ todos: [...this.state.todos, newTodo] });
   }
 
+
   async deleteTodo(id) {
     await apiCalls.removeTodo(id);
     const todos = this.state.todos.filter((todo) => todo._id !== id);
     this.setState({ todos: todos });
   }
+
 
   async toggleTodo(todo) {
     let updatedTodo = await apiCalls.updateTodo(todo);
@@ -41,6 +45,7 @@ class TodoList extends Component {
       )
       this.setState({ todos: todos });
   }
+
 
   render() {
     const todos = this.state.todos.map((t) => (

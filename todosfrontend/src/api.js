@@ -10,7 +10,7 @@ export async function getTodos() {
           throw err;
         });
       } else {
-        let err = { errorMessage: "Please try again as the server is down!" };
+        let err = { errorMessage: "Please try again as the server is not responding!" };
         throw err;
       }
     }
@@ -61,7 +61,7 @@ export async function removeTodo(id) {
         throw err;
       }
     }
-    return resp.json();
+    return resp.json(); // We don't need to return anything because we're deleting
   });
 }
 

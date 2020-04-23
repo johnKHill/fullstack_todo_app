@@ -8,17 +8,21 @@ class TodoForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+
   handleChange(e) {
     this.setState({
       inputValue: e.target.value
     });
   }
 
+
   handleSubmit() {
     this.props.addTodo(this.state.inputValue);
   }
 
+
   render() {
+
     return (
       <div>
         <input
